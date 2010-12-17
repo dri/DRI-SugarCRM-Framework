@@ -22,7 +22,6 @@ if(empty($args)) {
 if($env == '') {
     require_once 'bob/libs/Documentation.php';
     Documentation::printHelp();
-    die();
 }
 
 // Sugar init
@@ -52,7 +51,7 @@ foreach($files as $file) {
 }
 
 if(empty($toBeExecuted)) {
-    die();
+    return true;
 }
 
 // sort the array so we run the classes in the right order
@@ -62,4 +61,4 @@ foreach($toBeExecuted as $builderA) {
     $builderA['object']->execute();
 }
 
-die();
+return true;

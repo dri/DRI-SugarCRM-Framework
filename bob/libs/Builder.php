@@ -37,7 +37,7 @@ abstract class Builder
     public function checkEnv($environment)
     {
         if (!isset($this->{'_' . $environment})) {
-            die('No enviromnent variables defined for ' . get_class($this) . " in $environment".EOL);
+            throw new Exception('No enviromnent variables defined for ' . get_class($this) . " in $environment".EOL, 1);
         }
         
         return $this->{'_' . $environment};
@@ -49,7 +49,7 @@ abstract class Builder
      */
     public function getPriority() {
         if(!isset($this->_priority) || !is_numeric($this->_priority)) {
-            die('Unset or invalid priority for ' . get_class($this).EOL);
+            throw new Exception('Unset or invalid priority for ' . get_class($this).EOL, 1);
         }
         
         return $this->_priority;
