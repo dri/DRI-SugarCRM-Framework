@@ -29,8 +29,6 @@ class CheckExtensionLanguageSanity extends Builder
     
     public function execute()
     {
-        echo "executing CheckExtensionLanguageSanity...";
-        
         // 1. find which directories we need to check
         $this->getDirectories();
         
@@ -42,7 +40,6 @@ class CheckExtensionLanguageSanity extends Builder
         
         $this->displayNotifications();
         
-        echo " done!".EOL;
     }
     
     /**

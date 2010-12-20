@@ -24,8 +24,6 @@ class QuickRepairAndRebuild extends Builder
     
     public function execute()
     {
-        echo "executing QuickRepairAndRebuild...";
-        
         require_once ('include/entryPoint.php');
         require_once ('modules/Administration/QuickRepairAndRebuild.php');
         
@@ -41,7 +39,5 @@ class QuickRepairAndRebuild extends Builder
         $rac->rebuildExtensions();
         $rac->clearTpls();
         $rac->clearJsLangFiles();
-        
-        echo " done! ".EOL;
     }
 }

@@ -68,7 +68,9 @@ usort($toBeExecuted, 'comparePriorities');
 
 foreach ($toBeExecuted as $builderA) {
     try {
+        echo "executing ".get_class($builderA['object'])."...";
         $builderA['object']->execute();
+        echo " done!".EOL;
     } catch (Exception $e) {
         echo "Failed: " . $e->getMessage() . EOL;
     }
