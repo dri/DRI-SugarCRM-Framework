@@ -11,23 +11,17 @@ $bob_config = array(
             'en_us'
         ), 
         'modules' => array(
-           // 'accounts_ch_economato', 
             'Documents', 
             'Contacts', 
-            'ch_Pickup_Addresses', 
-            'SYNO_Pdf_templates', 
             'Reports', 
             'Currencies', 
             'Bugs', 
             'Accounts', 
             'Prospects', 
             'Dashboard', 
-            'ch_DAF_Cases', 
             'Calls', 
             'Notes', 
             'Contracts', 
-            'ch_subaccounts', 
-            'ch_honeymoon', 
             'Cases', 
             'Tasks', 
             'Meetings', 
@@ -35,15 +29,11 @@ $bob_config = array(
             'Charts', 
             'Administration', 
             'Emails', 
-            'ch_Objectives', 
             'CampaignLog', 
             'Campaigns', 
             'ProspectLists', 
             'Leads', 
             'Opportunities', 
-            'ch_Economato', 
-            'ch_SAC_Cases', 
-            'ch_CommercialPortfolio'
         )
     )
 );
