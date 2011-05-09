@@ -1,10 +1,11 @@
 <?php
 if (!defined('sugarEntry'))
     define('sugarEntry', true);
-require_once ('include/entryPoint.php');
-
 error_reporting(E_ALL);
 ini_set('display_errors', true);
+
+require_once ('include/entryPoint.php');
+
 
 $args = $_SERVER['argv'];
 
@@ -108,7 +109,7 @@ class MakeModule
      */
     private function _printusage()
     {
-        return "usage: php -f mkmod.php module_name template_type team_security navigation_tab \n";
+        return "usage: php -f mkmod.php module_name template_type team_security navigation_tab importable \n";
     }
 
     /**
