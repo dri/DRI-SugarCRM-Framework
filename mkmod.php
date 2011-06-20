@@ -55,11 +55,11 @@ class MakeModule
         'LBL_HOMEPAGE_TITLE' => 'Meus <>',
         'LNK_NEW_RECORD' => 'Criar <>',
         'LNK_LIST' => 'Vista <>',
-        'LNK_IMPORT_X_TESTE2' => 'Import <>',
+        'LNK_IMPORT_<>' => 'Import <>',
         'LBL_SEARCH_FORM_TITLE' => 'Pesquisar <>',
         'LBL_HISTORY_SUBPANEL_TITLE' => 'Ver Histórico',
         'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Actividades',
-        'LBL_X_TESTE2_SUBPANEL_TITLE' => '<>',
+        'LBL_<>_SUBPANEL_TITLE' => '<>',
         'LBL_NEW_FORM_TITLE' => 'Novo <>'
     );
     
@@ -91,7 +91,7 @@ class MakeModule
     private function _checkArgs($args)
     {
         foreach ($this->args_template as $order => $meta) {
-            if (empty($args[$order]) && !$meta['null']) {
+            if (!isset($args[$order]) && !$meta['null']) {
                 throw new Exception($meta['name'] . " can't be null.\n " . $this->_printusage());
             }
             
@@ -100,7 +100,7 @@ class MakeModule
         }
         
         if (!in_array($this->_template_type, $this->supported_types)) {
-            throw new Exception("Unsupported relationship type: " . $this->_template_type);
+            throw new Exception("Unsupported module type: " . $this->_template_type);
         }
     }
 
@@ -218,6 +218,7 @@ EOQ;
 \$beanList['{$this->_name}'] = '{$this->_name}';
 \$beanFiles['{$this->_name}'] = 'modules/{$this->_name}/{$this->_name}.php';
 \$modInvisList[] = '{$this->_name}';
+\$modules_exempt_from_availability_check['{$this->_name}'] = '{$this->_name}';
 
 EOQ;
         }
@@ -286,6 +287,9 @@ EOQ;
         
         file_put_contents("modules/{$this->_name}/Menu.php", $this->_menu);
         echo "wrote modules/{$this->_name}/Menu.php \n";
+
+        system("touch modules/" . $this->_name . "/Forms.php");
+        echo "touched modules/" . $this->_name . "/Forms.php \n";
         
         echo "you need to create custom/themes/default/images/Create" . strtolower($this->_name) . ".gif, commander \n";
         echo "you need to create custom/themes/default/images/" . strtolower($this->_name) . ".gif, commander \n";

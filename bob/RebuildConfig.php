@@ -8,7 +8,7 @@
  */
 
 require_once 'bob/libs/Builder.php';
-class RepairConfig extends Builder
+class RebuildConfig extends Builder
 {
     /**
      * 
