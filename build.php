@@ -1,6 +1,8 @@
 <?php
 ini_set('display_errors', 'On');
 require_once 'bob/libs/helpers.php';
+require_once 'bob/libs/BobStrap.php';
+require_once 'bob_config.php';
 
 // determine $env and if we're running from browser or command line 
 $env = '';
@@ -19,15 +21,19 @@ if (empty($args)) {
 /**
  * No environment found: print basic help and die
  */
-if ($env == '') {
+if (empty($env) || $env == '') {
     require_once 'bob/libs/Documentation.php';
     Documentation::printHelp();
+    die();
 }
 
 // Sugar init
 if (!defined('sugarEntry'))
     define('sugarEntry', true);
 require_once ('include/entryPoint.php');
+
+// setup a fake admin session
+BobStrap::setupUser();
 
 $files = scandir('bob');
 
@@ -75,5 +81,7 @@ foreach ($toBeExecuted as $builderA) {
         echo "Failed: " . $e->getMessage() . EOL;
     }
 }
+
+echo "Bob has completed, sir. Please chown or chmod as appropriate. \n";
 
 return true;

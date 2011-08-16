@@ -39,5 +39,7 @@ class QuickRepairAndRebuild extends Builder
         $rac->rebuildExtensions();
         $rac->clearTpls();
         $rac->clearJsLangFiles();
+        $rac->clearSearchCache();
+        $rac->repairDatabaseNormal();
     }
 }

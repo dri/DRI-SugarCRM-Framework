@@ -35,5 +35,8 @@ $bob_config = array(
             'Leads', 
             'Opportunities', 
         )
-    )
+    ),
+    'global' => array(
+        'admin_user_name' => 'admin'
+    ),
 );
